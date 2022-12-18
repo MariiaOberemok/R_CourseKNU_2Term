@@ -1,0 +1,20 @@
+
+Run_analysis.R creates clean dataset ('tidy_dataset.csv') with the mean for each variable every subject. 
+This CodeBook provides a description of scope of work that was done for cleaning the dataset.
+
+Following manipulations were performed within 'run_analysis.R' program to obtain the 'tidy_dataset.csv'.
+
+1. Get the raw data, assign descriptive labels;
+2. Combine test and train data together;
+3. For each testing pull out only mean and standard deviation measurement;
+4. Use activities performed as the activity labels in dataset;
+5. Create independent tidy dataset with means for each variable-activity-subject.
+
+
+Dataset contains 180 observations and 68 variables. 
+Subject - unique within Position.Measurement ID of Subject; has values 1 to 30 which represents subject, voluntarily providing vital signs data. 
+Position.Measurement- Describes in what position the measurement was done. There are 6 conditions for the measurement: walking, walking upstairs, walking downstairs, sitting, standing and laying. 
+Then there are 17 parameters being analyzed. It was captured 3-axial linear acceleration and 3-axial angular velocity. 
+The outputted dataset summarizes them by displaying mean and standard deviation. All variables are split into Time and Frequency measurement. In addition half of each subgroup measures triaxial acceleration from the accelerometer and the other - estimated body acceleration. Below parameters have been measured for each axis (X, Y and Z) vs time and frequency: BodyAcc GravityAcc BodyAccJerk BodyGyro BodyGyroJerk
+
+Below represents total acceleration magnitude measured vs time and frequency: BodyAccMag GravityAccMag BodyAccJerkMag BodyGyroMag BodyGyroJerkMag
