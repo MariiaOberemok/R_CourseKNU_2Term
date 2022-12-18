@@ -5,14 +5,20 @@
 Основні прогнозні показники економічного і соціального розвитку України
 Набір даних містить основні прогнозні макропоказники України, такі як ВВП, індекс споживчих цін, індекс цін виробників, середньомісячна заробітна плата, сальдо торговельного балансу, експорт та імпорт тощо. Макропоказники розробляються на щорічній основі і схвалюються постановою Кабінету Міністрів України. За необхідності до постанови можуть вноситись зміни.
 
-> url<-"https://data.gov.ua/dataset/175386f8-fbce-4352-8ec9-44fc8c436aa9/resource/b60b1b47-558e-4159-9397-34b2efdcb876/download/nabir-2022-2024-roki.xls"
-> 
-> download.file(url, destfile="./nabir-2022-2024-roki.xls", mode='wb')
+```r
+url<-"https://data.gov.ua/dataset/175386f8-fbce-4352-8ec9-44fc8c436aa9/resource/b60b1b47-558e-4159-9397-34b2efdcb876/download/nabir-2022-2024-roki.xls"
+download.file(url, destfile="./nabir-2022-2024-roki.xls", mode='wb')
+```
 
-> install.packages("readxl")
-> library(readxl)
-> 
-> read_excel("/Users/m.oberemok/Downloads/nabir-2022-2024-roki.xls", sheet=1)
+```r
+install.packages("readxl")
+library(readxl)
+df<-read_excel("/Users/m.oberemok/Downloads/nabir-2022-2024-roki.xls", sheet=1)
+df
+```
+```r
+df<-read_excel("/Users/m.oberemok/Downloads/nabir-2022-2024-roki.xls", sheet=1)
+> df
 
 
 # A tibble: 17 × 5                                                              
@@ -35,22 +41,25 @@
 15      15 Експорт товарів і послуг, відсотків до поперед… 106.5   107.7   107.90…
 16      16 Імпорт товарів і послуг, млн. доларів США       78881   86309   93764  
 17      17 Імпорт товарів і послуг, відсотків до попередн… 109.2   109.40… 108.59…
+```
 
 2. За допомогою download.file() завантажте файл getdata_data_ss06hid.csv за посиланням https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv та завантажте дані в R. Code book, що пояснює значення змінних знаходиться за посиланням https://www.dropbox.com/s/dijv0rlwo4mryv5/PUMSDataDict06.pdf?dl=0 Необхідно знайти, скільки property мають value $1000000+
 
+
+```r
 > download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv", destfile = "data.csv")
 > data <- read.csv("data.csv")
 > a <- lapply(data$VAL, function(x) if (!is.na(x) && x==24) TRUE else NA)
 > length(a[!is.na(a)])
 [1] 53
-  
+  ```
  3. Зчитайте xml файл за посиланням http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml Скільки ресторанів мають zipcode 21231?
-
+```r
 > library(XML)
 > url <- "http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml"
 > doc <- xmlTreeParse(url,useInternal=TRUE)
 > rootNode <- xmlRoot(doc)
 > length(xpathApply(rootNode, '//row/row/zipcode[text()="21231"]'))
 [1] 127
-  
+    ```
   
