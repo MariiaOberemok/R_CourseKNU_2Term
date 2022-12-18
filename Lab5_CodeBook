@@ -1,4 +1,3 @@
-
 Run_analysis.R creates clean dataset ('tidy_dataset.csv') with the mean for each variable every subject. 
 This CodeBook provides a description of scope of work that was done for cleaning the dataset.
 
