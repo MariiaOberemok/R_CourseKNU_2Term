@@ -61,5 +61,5 @@ df<-read_excel("/Users/m.oberemok/Downloads/nabir-2022-2024-roki.xls", sheet=1)
 > rootNode <- xmlRoot(doc)
 > length(xpathApply(rootNode, '//row/row/zipcode[text()="21231"]'))
 [1] 127
-    ```
+```
   
